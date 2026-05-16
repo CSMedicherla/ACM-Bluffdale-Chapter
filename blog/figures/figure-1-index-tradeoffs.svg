@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Comparison of three vector index types across memory efficiency, recall, and latency">
+  <defs>
+    <style>
+      .axis-label { font: 500 12px 'IBM Plex Mono', ui-monospace, monospace; fill: #5a5a5a; letter-spacing: 0.08em; }
+      .index-name { font: 600 16px 'IBM Plex Sans', system-ui, sans-serif; fill: #0a1f44; }
+      .index-tag  { font: 500 11px 'IBM Plex Mono', ui-monospace, monospace; fill: #5a5a5a; letter-spacing: 0.08em; }
+    </style>
+  </defs>
+  <rect width="800" height="360" fill="#f4f1eb"/>
+
+  <text x="240" y="32" class="axis-label" text-anchor="middle">MEMORY EFFICIENCY</text>
+  <text x="460" y="32" class="axis-label" text-anchor="middle">RECALL</text>
+  <text x="680" y="32" class="axis-label" text-anchor="middle">LATENCY</text>
+
+  <text x="40" y="100" class="index-name">HNSW</text>
+  <text x="40" y="118" class="index-tag">Graph-based</text>
+  <rect x="180" y="92" width="120" height="14" fill="#e8d5cb"/>
+  <rect x="180" y="92" width="32"  height="14" fill="#c84a30"/>
+  <rect x="400" y="92" width="120" height="14" fill="#e8d5cb"/>
+  <rect x="400" y="92" width="108" height="14" fill="#0a1f44"/>
+  <rect x="620" y="92" width="120" height="14" fill="#e8d5cb"/>
+  <rect x="620" y="92" width="105" height="14" fill="#0a1f44"/>
+
+  <text x="40" y="180" class="index-name">IVF-FLAT</text>
+  <text x="40" y="198" class="index-tag">Partition-based</text>
+  <rect x="180" y="172" width="120" height="14" fill="#e8d5cb"/>
+  <rect x="180" y="172" width="100" height="14" fill="#0a1f44"/>
+  <rect x="400" y="172" width="120" height="14" fill="#e8d5cb"/>
+  <rect x="400" y="172" width="74"  height="14" fill="#0a1f44"/>
+  <rect x="620" y="172" width="120" height="14" fill="#e8d5cb"/>
+  <rect x="620" y="172" width="78"  height="14" fill="#0a1f44"/>
+
+  <text x="40" y="260" class="index-name">Hybrid</text>
+  <text x="40" y="278" class="index-tag">Graph + partition</text>
+  <rect x="180" y="252" width="120" height="14" fill="#e8d5cb"/>
+  <rect x="180" y="252" width="72"  height="14" fill="#0a1f44"/>
+  <rect x="400" y="252" width="120" height="14" fill="#e8d5cb"/>
+  <rect x="400" y="252" width="96"  height="14" fill="#0a1f44"/>
+  <rect x="620" y="252" width="120" height="14" fill="#e8d5cb"/>
+  <rect x="620" y="252" width="90"  height="14" fill="#0a1f44"/>
+
+  <line x1="40" y1="320" x2="760" y2="320" stroke="#d4cfc4" stroke-width="1"/>
+  <text x="40" y="345" class="axis-label">LOW</text>
+  <text x="760" y="345" class="axis-label" text-anchor="end">HIGH</text>
+</svg>

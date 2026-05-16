@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 380" preserveAspectRatio="xMidYMid meet" role="img" aria-label="AdaptIndex pipeline diagram: features feed a gradient-boosting classifier that outputs an index choice">
+  <defs>
+    <style>
+      .box-item    { font: 400 12px 'IBM Plex Sans', system-ui, sans-serif; fill: #1f2937; }
+      .box-label   { font: 500 10px 'IBM Plex Mono', ui-monospace, monospace; fill: #5a5a5a; letter-spacing: 0.1em; }
+      .stage-label { font: 500 11px 'IBM Plex Mono', ui-monospace, monospace; fill: #c84a30; letter-spacing: 0.12em; }
+      .model-title { font: 600 15px 'IBM Plex Sans', system-ui, sans-serif; fill: #fbfaf7; }
+      .model-spec  { font: 500 11px 'IBM Plex Mono', ui-monospace, monospace; fill: #fbfaf7; letter-spacing: 0.05em; }
+      .output-name { font: 600 14px 'IBM Plex Sans', system-ui, sans-serif; fill: #0a1f44; }
+      .selected    { font: 600 14px 'IBM Plex Sans', system-ui, sans-serif; fill: #c84a30; }
+    </style>
+  </defs>
+  <rect width="880" height="380" fill="#f4f1eb"/>
+
+  <text x="120" y="28" class="stage-label" text-anchor="middle">01 / FEATURES</text>
+  <text x="445" y="28" class="stage-label" text-anchor="middle">02 / MODEL</text>
+  <text x="770" y="28" class="stage-label" text-anchor="middle">03 / DECISION</text>
+
+  <rect x="20" y="50" width="200" height="86" fill="#fbfaf7" stroke="#d4cfc4" stroke-width="1" rx="2"/>
+  <text x="36" y="74" class="box-label">QUERY PATTERNS</text>
+  <text x="36" y="94" class="box-item">request rate</text>
+  <text x="36" y="110" class="box-item">batch size</text>
+  <text x="36" y="126" class="box-item">temporal peaks</text>
+
+  <rect x="20" y="148" width="200" height="86" fill="#fbfaf7" stroke="#d4cfc4" stroke-width="1" rx="2"/>
+  <text x="36" y="172" class="box-label">DATA DISTRIBUTION</text>
+  <text x="36" y="192" class="box-item">dimensionality</text>
+  <text x="36" y="208" class="box-item">clustering</text>
+  <text x="36" y="224" class="box-item">sparsity</text>
+
+  <rect x="20" y="246" width="200" height="86" fill="#fbfaf7" stroke="#d4cfc4" stroke-width="1" rx="2"/>
+  <text x="36" y="270" class="box-label">PERFORMANCE</text>
+  <text x="36" y="290" class="box-item">latency</text>
+  <text x="36" y="306" class="box-item">memory pressure</text>
+  <text x="36" y="322" class="box-item">cache behavior</text>
+
+  <path d="M 220 93 L 340 175" stroke="#c84a30" stroke-width="1.2" fill="none"/>
+  <path d="M 220 191 L 340 191" stroke="#c84a30" stroke-width="1.2" fill="none"/>
+  <path d="M 220 289 L 340 207" stroke="#c84a30" stroke-width="1.2" fill="none"/>
+
+  <rect x="340" y="140" width="210" height="100" fill="#0a1f44" rx="2"/>
+  <text x="445" y="170" class="model-title" text-anchor="middle">Gradient Boosting</text>
+  <text x="445" y="190" class="model-title" text-anchor="middle">Classifier</text>
+  <line x1="370" y1="206" x2="520" y2="206" stroke="#c84a30" stroke-width="1"/>
+  <text x="445" y="223" class="model-spec" text-anchor="middle">12 MB &#xB7; &lt; 5 ms</text>
+
+  <text x="280" y="200" class="box-label" text-anchor="middle">18</text>
+
+  <path d="M 550 190 L 660 130" stroke="#c84a30" stroke-width="1.2" fill="none"/>
+  <path d="M 550 190 L 660 190" stroke="#c84a30" stroke-width="1.2" fill="none"/>
+  <path d="M 550 190 L 660 250" stroke="#c84a30" stroke-width="1.2" fill="none"/>
+
+  <rect x="660" y="105" width="180" height="50" fill="#fbfaf7" stroke="#c84a30" stroke-width="2" rx="2"/>
+  <text x="750" y="135" class="selected" text-anchor="middle">HNSW &#x2190; selected</text>
+
+  <rect x="660" y="165" width="180" height="50" fill="#fbfaf7" stroke="#d4cfc4" stroke-width="1" rx="2"/>
+  <text x="750" y="195" class="output-name" text-anchor="middle">IVF-FLAT</text>
+
+  <rect x="660" y="225" width="180" height="50" fill="#fbfaf7" stroke="#d4cfc4" stroke-width="1" rx="2"/>
+  <text x="750" y="255" class="output-name" text-anchor="middle">Hybrid</text>
+</svg>

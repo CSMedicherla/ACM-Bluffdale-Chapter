@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Latency reduction: AdaptIndex 23 to 31 percent lower than static baseline across four benchmarks">
+  <defs>
+    <style>
+      .bar-label { font: 500 12px 'IBM Plex Mono', ui-monospace, monospace; fill: #5a5a5a; letter-spacing: 0.08em; }
+      .bar-value { font: 600 18px 'IBM Plex Sans', system-ui, sans-serif; fill: #0a1f44; }
+      .bar-tag   { font: 500 11px 'IBM Plex Mono', ui-monospace, monospace; fill: #c84a30; letter-spacing: 0.1em; }
+      .axis      { stroke: #d4cfc4; stroke-width: 1; }
+      .axis-text { font: 500 11px 'IBM Plex Mono', ui-monospace, monospace; fill: #5a5a5a; letter-spacing: 0.08em; }
+    </style>
+  </defs>
+  <rect width="800" height="320" fill="#f4f1eb"/>
+
+  <text x="40" y="32" class="bar-tag">LATENCY (NORMALIZED)</text>
+
+  <line x1="170" y1="60" x2="170" y2="260" class="axis"/>
+  <text x="155" y="65"  class="axis-text" text-anchor="end">100%</text>
+  <text x="155" y="160" class="axis-text" text-anchor="end">50%</text>
+  <text x="155" y="265" class="axis-text" text-anchor="end">0%</text>
+
+  <rect x="200" y="60" width="120" height="200" fill="#e8d5cb"/>
+  <rect x="200" y="60" width="120" height="200" fill="none" stroke="#c84a30" stroke-width="1"/>
+  <text x="260" y="285" class="bar-label" text-anchor="middle">STATIC BASELINE</text>
+  <text x="260" y="50"  class="bar-value" text-anchor="middle">100%</text>
+
+  <rect x="370" y="122" width="120" height="138" fill="#0a1f44"/>
+  <rect x="370" y="106" width="120" height="16"  fill="#0a1f44" fill-opacity="0.25"/>
+  <text x="430" y="285" class="bar-label" text-anchor="middle">ADAPTINDEX (BENCH)</text>
+  <text x="430" y="50"  class="bar-value" text-anchor="middle">69&#x2013;77%</text>
+  <text x="430" y="118" class="bar-tag"   text-anchor="middle">&#x2212;23 to &#x2212;31%</text>
+
+  <rect x="540" y="118" width="120" height="142" fill="#0a1f44"/>
+  <text x="600" y="285" class="bar-label" text-anchor="middle">ADAPTINDEX (SIM P95)</text>
+  <text x="600" y="50"  class="bar-value" text-anchor="middle">71%</text>
+  <text x="600" y="111" class="bar-tag"   text-anchor="middle">&#x2212;29%</text>
+
+  <line x1="170" y1="60" x2="690" y2="60" stroke="#d4cfc4" stroke-dasharray="2,4" stroke-width="1"/>
+</svg>

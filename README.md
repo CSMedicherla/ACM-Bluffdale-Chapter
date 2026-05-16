@@ -16,6 +16,20 @@ The site is **WordPress**. The active theme uses a custom Page template
 | `blog/page-blog.php` | Reference copy of the existing blog listing template currently installed in the theme. No changes needed. |
 | `blog/featured-image.svg` | Editorial-poster SVG (1600&times;900) used as the in-article hero and for the WP Featured image / Open Graph card. Same image is also inlined into the three article files above, so paste-publish doesn't depend on the upload succeeding. |
 | `blog/featured-image.png` / `blog/featured-image@2x.png` | PNG renders of the poster (1600&times;900 and 3200&times;1800). Upload these instead of the SVG because WP core blocks SVG uploads. |
+| `blog/figures/figure-1-index-tradeoffs.{svg,png}` | Figure 1 &mdash; three vector index types compared on memory, recall, latency. |
+| `blog/figures/figure-2-pipeline.{svg,png}` | Figure 2 &mdash; AdaptIndex pipeline (features &rarr; classifier &rarr; index choice). |
+| `blog/figures/figure-3-latency.{svg,png}` | Figure 3 &mdash; latency reduction vs. static baseline. |
+
+## Why the figures originally didn't render
+
+WordPress's KSES content sanitizer strips inline `<svg>` and its children (`<rect>`, `<text>`, `<line>`, `<path>`, `<g>`) on save &mdash; they're not in the default allowed-HTML list. So when the post was first published, the figure captions appeared but the diagrams were stripped to nothing.
+
+The fix in `blog/adaptindex-post-body.html` swaps each inline `<svg>` for an `<img>` tag pointing at a PNG. After uploading the four PNGs to **Media Library**, replace the four placeholder URLs in the post body:
+
+- `REPLACE_WITH_FEATURED_IMAGE_URL`
+- `REPLACE_WITH_FIGURE_1_URL`
+- `REPLACE_WITH_FIGURE_2_URL`
+- `REPLACE_WITH_FIGURE_3_URL`
 | `blog/additional-css.css` | Defensive CSS snippet for **Appearance &rarr; Customize &rarr; Additional CSS**. Use this to fix an already-published post without re-editing the body HTML. See the **Theme collision** section below. |
 
 ## Theme collision &mdash; the "ugly post" bug

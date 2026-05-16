@@ -2,17 +2,40 @@
   AdaptIndex Blog Post — body HTML for WordPress
   ------------------------------------------------
   HOW TO USE:
-    1. WP Admin → Posts → Add New
-    2. Title: "How a 12 MB Model Picks the Right Vector Index for IoT Workloads"
-    3. Switch the editor to "Code editor" (top-right kebab menu)
+    1. Upload the four PNGs from blog/figures/ and the featured image
+       PNG to WP Admin -> Media -> Add New:
+         - blog/featured-image.png
+         - blog/figures/figure-1-index-tradeoffs.png
+         - blog/figures/figure-2-pipeline.png
+         - blog/figures/figure-3-latency.png
+       Open each in the Media Library after upload and copy the
+       "File URL" (right sidebar). You will paste those URLs into
+       the four placeholders below.
+
+    2. WP Admin -> Posts -> Add New
+    3. Title: "How a 12 MB Model Picks the Right Vector Index for IoT Workloads"
+    4. Switch the editor to "Code editor" (top-right kebab menu)
        OR add a single "Custom HTML" block in the visual editor.
-    4. Paste EVERYTHING below the marker line into the editor body.
-    5. In the right sidebar:
+    5. Paste EVERYTHING between the PASTE FROM HERE / STOP PASTING
+       HERE markers below.
+    6. Find and replace the four placeholder URLs with the real
+       Media Library URLs from step 1:
+         REPLACE_WITH_FEATURED_IMAGE_URL
+         REPLACE_WITH_FIGURE_1_URL
+         REPLACE_WITH_FIGURE_2_URL
+         REPLACE_WITH_FIGURE_3_URL
+    7. In the right sidebar:
          - Categories: check  Blog   (must match page-blog.php query)
          - Excerpt: paste the suggested excerpt below
-         - Featured image (optional): any image; not rendered by current
-           page-blog.php but useful for future updates / social cards.
-    6. Publish.
+         - Featured image: pick featured-image.png from Media Library
+    8. Publish.
+
+  WHY IMAGES INSTEAD OF INLINE SVG:
+    WordPress's KSES content sanitizer strips inline <svg> tags on
+    save (they're not in the default allowed-HTML list). So the
+    figure SVGs disappeared from the rendered post. Using <img>
+    tags with PNGs uploaded to Media Library is the universal fix
+    that works regardless of theme, plugins, or user capability.
 
   SUGGESTED EXCERPT (for the listing card on /blog/):
     A 12 MB gradient-boosting model that adaptively picks vector indexes
@@ -21,8 +44,8 @@
 
   STYLING NOTE:
     All CSS is namespaced under .adaptindex-article so it cannot leak
-    into the site theme. The post will render inside whatever single.php
-    layout the active theme uses; the article styles itself internally.
+    into the site theme. The renamed .ai-hero class avoids the theme's
+    global .hero collision documented in README.
 -->
 
 <!-- ===================  PASTE FROM HERE  =================== -->
@@ -172,7 +195,9 @@
     padding: 40px 32px 32px;
     position: relative;
 }
-.adaptindex-article .figure-frame svg { display: block; width: 100%; height: auto; }
+.adaptindex-article .figure-frame svg,
+.adaptindex-article .figure-frame img { display: block; width: 100%; height: auto; }
+.adaptindex-article .featured-hero img { display: block; width: 100%; height: auto; }
 .adaptindex-article figcaption {
     font-family: var(--font-mono);
     font-size: 13px;
@@ -286,58 +311,7 @@
 <article class="adaptindex-article">
 
     <div class="featured-hero">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid meet" role="img" aria-label="AdaptIndex: how a 12 MB model picks the right vector index for IoT workloads">
-            <defs>
-                <style>
-                    .fi-eyebrow    { font: 500 22px 'IBM Plex Mono', ui-monospace, monospace; fill: #c84a30; letter-spacing: 4px; }
-                    .fi-brand      { font: 500 16px 'IBM Plex Mono', ui-monospace, monospace; fill: #c84a30; letter-spacing: 3px; }
-                    .fi-title      { font: 600 200px 'Fraunces', Georgia, serif; fill: #0a1f44; letter-spacing: -6px; }
-                    .fi-dek        { font: italic 400 48px 'Fraunces', Georgia, serif; fill: #5a5a5a; letter-spacing: -0.5px; }
-                    .fi-stat-num   { font: 600 60px 'Fraunces', Georgia, serif; fill: #fbfaf7; letter-spacing: -1.5px; }
-                    .fi-stat-label { font: 500 13px 'IBM Plex Mono', ui-monospace, monospace; fill: #fbfaf7; opacity: 0.65; letter-spacing: 2px; }
-                </style>
-            </defs>
-            <rect width="1600" height="900" fill="#fbfaf7"/>
-            <text x="80" y="100" class="fi-eyebrow">RESEARCH SPOTLIGHT</text>
-            <line x1="80" y1="118" x2="260" y2="118" stroke="#c84a30" stroke-width="2"/>
-            <text x="1520" y="100" class="fi-brand" text-anchor="end">ACM BLUFFDALE / SLC</text>
-            <text x="80" y="330" class="fi-title">AdaptIndex</text>
-            <text x="80" y="430" class="fi-dek">How a 12 MB model picks</text>
-            <text x="80" y="490" class="fi-dek">the right vector index</text>
-            <text x="80" y="550" class="fi-dek">for IoT workloads.</text>
-            <g transform="translate(1120, 240)">
-                <rect x="0"   y="0"   width="80"  height="40" fill="none" stroke="#d4cfc4" stroke-width="1.5" rx="2"/>
-                <rect x="0"   y="55"  width="80"  height="40" fill="none" stroke="#d4cfc4" stroke-width="1.5" rx="2"/>
-                <rect x="0"   y="110" width="80"  height="40" fill="none" stroke="#d4cfc4" stroke-width="1.5" rx="2"/>
-                <line x1="80" y1="20"  x2="160" y2="75" stroke="#c84a30" stroke-width="1.5"/>
-                <line x1="80" y1="75"  x2="160" y2="75" stroke="#c84a30" stroke-width="1.5"/>
-                <line x1="80" y1="130" x2="160" y2="75" stroke="#c84a30" stroke-width="1.5"/>
-                <rect x="160" y="50"  width="120" height="50" fill="#0a1f44" rx="2"/>
-                <text x="220" y="82" text-anchor="middle" fill="#fbfaf7" style="font: 500 14px 'IBM Plex Sans', system-ui, sans-serif; letter-spacing: 0.5px;">GBDT</text>
-                <line x1="280" y1="75" x2="360" y2="40"  stroke="#c84a30" stroke-width="1.5"/>
-                <line x1="280" y1="75" x2="360" y2="75"  stroke="#c84a30" stroke-width="1.5"/>
-                <line x1="280" y1="75" x2="360" y2="110" stroke="#c84a30" stroke-width="1.5"/>
-                <rect x="360" y="20"  width="100" height="40" fill="none" stroke="#c84a30" stroke-width="2" rx="2"/>
-                <rect x="360" y="65"  width="100" height="40" fill="none" stroke="#d4cfc4" stroke-width="1.5" rx="2"/>
-                <rect x="360" y="110" width="100" height="40" fill="none" stroke="#d4cfc4" stroke-width="1.5" rx="2"/>
-                <text x="410" y="46"  text-anchor="middle" fill="#c84a30" style="font: 600 13px 'IBM Plex Sans', system-ui, sans-serif; letter-spacing: 0.5px;">HNSW</text>
-                <text x="410" y="91"  text-anchor="middle" fill="#0a1f44" opacity="0.55" style="font: 500 12px 'IBM Plex Sans', system-ui, sans-serif; letter-spacing: 0.5px;">IVF-FLAT</text>
-                <text x="410" y="136" text-anchor="middle" fill="#0a1f44" opacity="0.55" style="font: 500 12px 'IBM Plex Sans', system-ui, sans-serif; letter-spacing: 0.5px;">Hybrid</text>
-            </g>
-            <rect x="0" y="700" width="1600" height="200" fill="#0a1f44"/>
-            <line x1="0" y1="700" x2="1600" y2="700" stroke="#c84a30" stroke-width="2"/>
-            <text x="100" y="790" class="fi-stat-num">12 MB</text>
-            <text x="100" y="830" class="fi-stat-label">MODEL SIZE</text>
-            <line x1="400" y1="740" x2="400" y2="860" stroke="#c84a30" stroke-width="1" opacity="0.35"/>
-            <text x="420" y="790" class="fi-stat-num">&lt; 5 ms</text>
-            <text x="420" y="830" class="fi-stat-label">INFERENCE</text>
-            <line x1="800" y1="740" x2="800" y2="860" stroke="#c84a30" stroke-width="1" opacity="0.35"/>
-            <text x="820" y="790" class="fi-stat-num">&#x2212;29%</text>
-            <text x="820" y="830" class="fi-stat-label">P95 LATENCY</text>
-            <line x1="1200" y1="740" x2="1200" y2="860" stroke="#c84a30" stroke-width="1" opacity="0.35"/>
-            <text x="1220" y="790" class="fi-stat-num">89%</text>
-            <text x="1220" y="830" class="fi-stat-label">PREDICTION ACCURACY</text>
-        </svg>
+        <img src="REPLACE_WITH_FEATURED_IMAGE_URL" alt="AdaptIndex poster: how a 12 MB model picks the right vector index for IoT workloads" style="display:block; width:100%; height:auto;">
     </div>
 
     <header class="ai-hero">
@@ -363,50 +337,7 @@
 
     <figure>
         <div class="figure-frame">
-            <svg viewBox="0 0 800 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Comparison of three vector index types">
-                <defs>
-                    <style>
-                        .axis-label { font: 500 12px 'IBM Plex Mono', monospace; fill: #5a5a5a; letter-spacing: 0.08em; }
-                        .index-name { font: 600 16px 'IBM Plex Sans', sans-serif; fill: #0a1f44; }
-                        .index-tag  { font: 500 11px 'IBM Plex Mono', monospace; fill: #5a5a5a; letter-spacing: 0.08em; }
-                    </style>
-                </defs>
-
-                <text x="240" y="32" class="axis-label" text-anchor="middle">MEMORY EFFICIENCY</text>
-                <text x="460" y="32" class="axis-label" text-anchor="middle">RECALL</text>
-                <text x="680" y="32" class="axis-label" text-anchor="middle">LATENCY</text>
-
-                <text x="40" y="100" class="index-name">HNSW</text>
-                <text x="40" y="118" class="index-tag">Graph-based</text>
-                <rect x="180" y="92" width="120" height="14" fill="#e8d5cb" />
-                <rect x="180" y="92" width="32"  height="14" fill="#c84a30" />
-                <rect x="400" y="92" width="120" height="14" fill="#e8d5cb" />
-                <rect x="400" y="92" width="108" height="14" fill="#0a1f44" />
-                <rect x="620" y="92" width="120" height="14" fill="#e8d5cb" />
-                <rect x="620" y="92" width="105" height="14" fill="#0a1f44" />
-
-                <text x="40" y="180" class="index-name">IVF-FLAT</text>
-                <text x="40" y="198" class="index-tag">Partition-based</text>
-                <rect x="180" y="172" width="120" height="14" fill="#e8d5cb" />
-                <rect x="180" y="172" width="100" height="14" fill="#0a1f44" />
-                <rect x="400" y="172" width="120" height="14" fill="#e8d5cb" />
-                <rect x="400" y="172" width="74"  height="14" fill="#0a1f44" />
-                <rect x="620" y="172" width="120" height="14" fill="#e8d5cb" />
-                <rect x="620" y="172" width="78"  height="14" fill="#0a1f44" />
-
-                <text x="40" y="260" class="index-name">Hybrid</text>
-                <text x="40" y="278" class="index-tag">Graph + partition</text>
-                <rect x="180" y="252" width="120" height="14" fill="#e8d5cb" />
-                <rect x="180" y="252" width="72"  height="14" fill="#0a1f44" />
-                <rect x="400" y="252" width="120" height="14" fill="#e8d5cb" />
-                <rect x="400" y="252" width="96"  height="14" fill="#0a1f44" />
-                <rect x="620" y="252" width="120" height="14" fill="#e8d5cb" />
-                <rect x="620" y="252" width="90"  height="14" fill="#0a1f44" />
-
-                <line x1="40" y1="320" x2="760" y2="320" stroke="#d4cfc4" stroke-width="1"/>
-                <text x="40" y="345" class="axis-label">LOW</text>
-                <text x="760" y="345" class="axis-label" text-anchor="end">HIGH</text>
-            </svg>
+            <img src="REPLACE_WITH_FIGURE_1_URL" alt="Comparison of three vector index types: HNSW, IVF-FLAT, and Hybrid, across memory efficiency, recall, and latency" style="display:block; width:100%; height:auto;">
         </div>
         <figcaption><strong>Figure 1.</strong> Each index type optimizes for a different combination of memory, recall, and latency. The "right" choice depends on which dimension your workload pressures most, and that pressure shifts over time.</figcaption>
     </figure>
@@ -461,67 +392,7 @@
 
     <figure>
         <div class="figure-frame">
-            <svg viewBox="0 0 880 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AdaptIndex pipeline diagram">
-                <defs>
-                    <style>
-                        .box-title    { font: 600 13px 'IBM Plex Sans', sans-serif; fill: #0a1f44; }
-                        .box-item     { font: 400 12px 'IBM Plex Sans', sans-serif; fill: #1f2937; }
-                        .box-label    { font: 500 10px 'IBM Plex Mono', monospace; fill: #5a5a5a; letter-spacing: 0.1em; }
-                        .stage-label  { font: 500 11px 'IBM Plex Mono', monospace; fill: #c84a30; letter-spacing: 0.12em; }
-                        .model-title  { font: 600 15px 'IBM Plex Sans', sans-serif; fill: #fbfaf7; }
-                        .model-spec   { font: 500 11px 'IBM Plex Mono', monospace; fill: #fbfaf7; letter-spacing: 0.05em; }
-                        .output-name  { font: 600 14px 'IBM Plex Sans', sans-serif; fill: #0a1f44; }
-                        .selected     { font: 600 14px 'IBM Plex Sans', sans-serif; fill: #c84a30; }
-                    </style>
-                </defs>
-
-                <text x="120" y="28" class="stage-label" text-anchor="middle">01 / FEATURES</text>
-                <text x="445" y="28" class="stage-label" text-anchor="middle">02 / MODEL</text>
-                <text x="770" y="28" class="stage-label" text-anchor="middle">03 / DECISION</text>
-
-                <rect x="20" y="50" width="200" height="86" fill="#fbfaf7" stroke="#d4cfc4" stroke-width="1" rx="2"/>
-                <text x="36" y="74" class="box-label">QUERY PATTERNS</text>
-                <text x="36" y="94" class="box-item">request rate</text>
-                <text x="36" y="110" class="box-item">batch size</text>
-                <text x="36" y="126" class="box-item">temporal peaks</text>
-
-                <rect x="20" y="148" width="200" height="86" fill="#fbfaf7" stroke="#d4cfc4" stroke-width="1" rx="2"/>
-                <text x="36" y="172" class="box-label">DATA DISTRIBUTION</text>
-                <text x="36" y="192" class="box-item">dimensionality</text>
-                <text x="36" y="208" class="box-item">clustering</text>
-                <text x="36" y="224" class="box-item">sparsity</text>
-
-                <rect x="20" y="246" width="200" height="86" fill="#fbfaf7" stroke="#d4cfc4" stroke-width="1" rx="2"/>
-                <text x="36" y="270" class="box-label">PERFORMANCE</text>
-                <text x="36" y="290" class="box-item">latency</text>
-                <text x="36" y="306" class="box-item">memory pressure</text>
-                <text x="36" y="322" class="box-item">cache behavior</text>
-
-                <path d="M 220 93 L 340 175" stroke="#c84a30" stroke-width="1.2" fill="none"/>
-                <path d="M 220 191 L 340 191" stroke="#c84a30" stroke-width="1.2" fill="none"/>
-                <path d="M 220 289 L 340 207" stroke="#c84a30" stroke-width="1.2" fill="none"/>
-
-                <rect x="340" y="140" width="210" height="100" fill="#0a1f44" rx="2"/>
-                <text x="445" y="170" class="model-title" text-anchor="middle">Gradient Boosting</text>
-                <text x="445" y="190" class="model-title" text-anchor="middle">Classifier</text>
-                <line x1="370" y1="206" x2="520" y2="206" stroke="#c84a30" stroke-width="1"/>
-                <text x="445" y="223" class="model-spec" text-anchor="middle">12 MB &middot; &lt; 5 ms</text>
-
-                <text x="280" y="200" class="box-label" text-anchor="middle">18</text>
-
-                <path d="M 550 190 L 660 130" stroke="#c84a30" stroke-width="1.2" fill="none"/>
-                <path d="M 550 190 L 660 190" stroke="#c84a30" stroke-width="1.2" fill="none"/>
-                <path d="M 550 190 L 660 250" stroke="#c84a30" stroke-width="1.2" fill="none"/>
-
-                <rect x="660" y="105" width="180" height="50" fill="#fbfaf7" stroke="#c84a30" stroke-width="2" rx="2"/>
-                <text x="750" y="135" class="selected" text-anchor="middle">HNSW  &larr; selected</text>
-
-                <rect x="660" y="165" width="180" height="50" fill="#fbfaf7" stroke="#d4cfc4" stroke-width="1" rx="2"/>
-                <text x="750" y="195" class="output-name" text-anchor="middle">IVF-FLAT</text>
-
-                <rect x="660" y="225" width="180" height="50" fill="#fbfaf7" stroke="#d4cfc4" stroke-width="1" rx="2"/>
-                <text x="750" y="255" class="output-name" text-anchor="middle">Hybrid</text>
-            </svg>
+            <img src="REPLACE_WITH_FIGURE_2_URL" alt="AdaptIndex pipeline: 18 features across query patterns, data distribution, and performance feed a gradient-boosting classifier that selects HNSW, IVF-FLAT, or Hybrid" style="display:block; width:100%; height:auto;">
         </div>
         <figcaption><strong>Figure 2.</strong> The AdaptIndex pipeline. Eighteen features across three families feed a small gradient-boosting classifier, which outputs the optimal index choice for the current workload. The whole loop fits in 12 MB and runs in under 5 ms, making it deployable on edge gateways.</figcaption>
     </figure>
@@ -543,42 +414,7 @@
 
     <figure>
         <div class="figure-frame">
-            <svg viewBox="0 0 800 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Latency improvement chart">
-                <defs>
-                    <style>
-                        .bar-label  { font: 500 12px 'IBM Plex Mono', monospace; fill: #5a5a5a; letter-spacing: 0.08em; }
-                        .bar-value  { font: 600 18px 'IBM Plex Sans', sans-serif; fill: #0a1f44; }
-                        .bar-tag    { font: 500 11px 'IBM Plex Mono', monospace; fill: #c84a30; letter-spacing: 0.1em; }
-                        .axis       { stroke: #d4cfc4; stroke-width: 1; }
-                        .axis-text  { font: 500 11px 'IBM Plex Mono', monospace; fill: #5a5a5a; letter-spacing: 0.08em; }
-                    </style>
-                </defs>
-
-                <text x="40" y="32" class="bar-tag">LATENCY (NORMALIZED)</text>
-
-                <line x1="170" y1="60" x2="170" y2="260" class="axis"/>
-                <text x="155" y="65" class="axis-text" text-anchor="end">100%</text>
-                <text x="155" y="160" class="axis-text" text-anchor="end">50%</text>
-                <text x="155" y="265" class="axis-text" text-anchor="end">0%</text>
-
-                <rect x="200" y="60" width="120" height="200" fill="#e8d5cb"/>
-                <rect x="200" y="60" width="120" height="200" fill="none" stroke="#c84a30" stroke-width="1"/>
-                <text x="260" y="285" class="bar-label" text-anchor="middle">STATIC BASELINE</text>
-                <text x="260" y="50" class="bar-value" text-anchor="middle">100%</text>
-
-                <rect x="370" y="122" width="120" height="138" fill="#0a1f44"/>
-                <rect x="370" y="106" width="120" height="16" fill="#0a1f44" fill-opacity="0.25"/>
-                <text x="430" y="285" class="bar-label" text-anchor="middle">ADAPTINDEX (BENCH)</text>
-                <text x="430" y="50" class="bar-value" text-anchor="middle">69&ndash;77%</text>
-                <text x="430" y="118" class="bar-tag" text-anchor="middle">&minus;23 to &minus;31%</text>
-
-                <rect x="540" y="118" width="120" height="142" fill="#0a1f44"/>
-                <text x="600" y="285" class="bar-label" text-anchor="middle">ADAPTINDEX (SIM P95)</text>
-                <text x="600" y="50" class="bar-value" text-anchor="middle">71%</text>
-                <text x="600" y="111" class="bar-tag" text-anchor="middle">&minus;29%</text>
-
-                <line x1="170" y1="60" x2="690" y2="60" stroke="#d4cfc4" stroke-dasharray="2,4" stroke-width="1"/>
-            </svg>
+            <img src="REPLACE_WITH_FIGURE_3_URL" alt="Latency reduction: AdaptIndex 23 to 31 percent lower than static baseline across four benchmarks; 29 percent P95 reduction in 90-day simulation" style="display:block; width:100%; height:auto;">
         </div>
         <figcaption><strong>Figure 3.</strong> Across four benchmark datasets, AdaptIndex reduced latency by 23 to 31 percent versus the best static configuration. In a 90-day simulation at deployment scale, P95 latency dropped by 29 percent.</figcaption>
     </figure>
