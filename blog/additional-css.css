@@ -2,30 +2,29 @@
  * AdaptIndex Blog Post — Additional CSS
  * ---------------------------------------
  * WHERE TO PASTE:
- *   WP Admin -> Appearance -> Customize -> Additional CSS
- *   (Top-right "Publish" button when done.)
+ *   WP Admin → Appearance → Customize → Additional CSS
  *
  * WHAT THIS FIXES:
- *   The active ACM chapter theme defines a global ".hero" class
+ *   The active chapter theme defines a global ".hero" class
  *   (navy 520px banner, white text, flex-centered, with a
- *   background-image overlay). Our published post HTML uses
- *   <header class="hero"> for the post intro, and the theme's
- *   .hero rules hijack it — turning the title white and forcing
+ *   background image overlay). The published post uses the
+ *   class name "hero" for its intro block, so the theme rules
+ *   hijack it — making the title white-on-paper and forcing
  *   the section into a tall navy box.
  *
- *   The rules below neutralize the theme's .hero properties ONLY
+ *   The rules below neutralize the theme.hero properties ONLY
  *   inside .adaptindex-article, so the rest of the site (front
- *   page hero, etc.) is untouched.
+ *   page banner, etc.) is untouched.
  *
  * NOTE:
- *   The post HTML in the repo has been updated to use a renamed
- *   ".ai-hero" class that doesn't collide at all. If you re-paste
- *   the updated blog/adaptindex-post-body.html into your published
- *   post, you can DELETE this whole snippet. This file is for the
- *   "fix the live post without re-editing it" path.
+ *   The repo version of the post body uses a renamed ".ai-hero"
+ *   class that does not collide at all. If you re-paste the
+ *   updated body into your published post, you can DELETE this
+ *   whole snippet. This file is for the "fix the live post
+ *   without re-editing it" path.
  */
 
-/* Neutralize the theme's .hero box on the AdaptIndex article */
+/* Neutralize the theme.hero box on the AdaptIndex article */
 .adaptindex-article .hero {
     min-height: 0 !important;
     background: transparent !important;
@@ -40,7 +39,7 @@
     margin: 0 auto 72px !important;
 }
 
-/* Restore the article-hero h1 styling (theme makes it white) */
+/* Restore the article hero heading styling (theme makes it white) */
 .adaptindex-article .hero h1 {
     color: #0a1f44 !important;
     max-width: none !important;
@@ -52,7 +51,7 @@
     letter-spacing: -0.02em !important;
 }
 
-/* Restore the dek (subtitle) — theme overrides .hero p */
+/* Restore the dek (subtitle) — theme paragraphs go translucent white */
 .adaptindex-article .hero p,
 .adaptindex-article .hero .dek {
     color: #5a5a5a !important;
@@ -64,17 +63,10 @@
 }
 
 /* Hide the duplicate title that index.php renders above the_content().
-   The article's own <h1> inside .hero already shows the title, and the
-   theme adds a second one outside the article. This hides the outer one
-   only when the page contains our article. */
+   Theme renders the post title in its own heading element outside the
+   article, and the article also contains its own heading inside .hero.
+   This rule hides the outer one only when the page contains our
+   article. Requires :has() support (modern browsers, ~96% coverage). */
 body.single article > h1:first-child:has(+ .entry-content .adaptindex-article) {
     display: none;
-}
-/* Fallback for browsers without :has() support — hides the first <h1>
-   in a single-post entry-content wrapper. Use sparingly; remove if it
-   collides with another post you publish. */
-.single .entry-content > .adaptindex-article ~ h1,
-.single > main > .container > article > h1 {
-    /* Uncomment if :has() above doesn't catch your case:
-    display: none; */
 }
