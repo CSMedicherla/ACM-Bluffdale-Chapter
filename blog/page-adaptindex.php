@@ -174,9 +174,71 @@ get_header();
     margin-top: 80px; font-size: 14px;
     color: var(--muted); font-style: italic; max-width: 720px;
 }
+
+.adaptindex-article .featured-hero {
+    max-width: 920px; margin: 0 auto 56px;
+    border-radius: 4px; overflow: hidden;
+    background: var(--surface); border: 1px solid var(--rule);
+}
+.adaptindex-article .featured-hero svg { display: block; width: 100%; height: auto; }
 </style>
 
 <article class="adaptindex-article">
+
+    <div class="featured-hero">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid meet" role="img" aria-label="AdaptIndex: how a 12 MB model picks the right vector index for IoT workloads">
+            <defs>
+                <style>
+                    .fi-eyebrow    { font: 500 22px 'IBM Plex Mono', ui-monospace, monospace; fill: #c84a30; letter-spacing: 4px; }
+                    .fi-brand      { font: 500 16px 'IBM Plex Mono', ui-monospace, monospace; fill: #c84a30; letter-spacing: 3px; }
+                    .fi-title      { font: 600 200px 'Fraunces', Georgia, serif; fill: #0a1f44; letter-spacing: -6px; }
+                    .fi-dek        { font: italic 400 48px 'Fraunces', Georgia, serif; fill: #5a5a5a; letter-spacing: -0.5px; }
+                    .fi-stat-num   { font: 600 60px 'Fraunces', Georgia, serif; fill: #fbfaf7; letter-spacing: -1.5px; }
+                    .fi-stat-label { font: 500 13px 'IBM Plex Mono', ui-monospace, monospace; fill: #fbfaf7; opacity: 0.65; letter-spacing: 2px; }
+                </style>
+            </defs>
+            <rect width="1600" height="900" fill="#fbfaf7"/>
+            <text x="80" y="100" class="fi-eyebrow">RESEARCH SPOTLIGHT</text>
+            <line x1="80" y1="118" x2="260" y2="118" stroke="#c84a30" stroke-width="2"/>
+            <text x="1520" y="100" class="fi-brand" text-anchor="end">ACM BLUFFDALE / SLC</text>
+            <text x="80" y="330" class="fi-title">AdaptIndex</text>
+            <text x="80" y="430" class="fi-dek">How a 12 MB model picks</text>
+            <text x="80" y="490" class="fi-dek">the right vector index</text>
+            <text x="80" y="550" class="fi-dek">for IoT workloads.</text>
+            <g transform="translate(1120, 240)">
+                <rect x="0"   y="0"   width="80"  height="40" fill="none" stroke="#d4cfc4" stroke-width="1.5" rx="2"/>
+                <rect x="0"   y="55"  width="80"  height="40" fill="none" stroke="#d4cfc4" stroke-width="1.5" rx="2"/>
+                <rect x="0"   y="110" width="80"  height="40" fill="none" stroke="#d4cfc4" stroke-width="1.5" rx="2"/>
+                <line x1="80" y1="20"  x2="160" y2="75" stroke="#c84a30" stroke-width="1.5"/>
+                <line x1="80" y1="75"  x2="160" y2="75" stroke="#c84a30" stroke-width="1.5"/>
+                <line x1="80" y1="130" x2="160" y2="75" stroke="#c84a30" stroke-width="1.5"/>
+                <rect x="160" y="50"  width="120" height="50" fill="#0a1f44" rx="2"/>
+                <text x="220" y="82" text-anchor="middle" fill="#fbfaf7" style="font: 500 14px 'IBM Plex Sans', system-ui, sans-serif; letter-spacing: 0.5px;">GBDT</text>
+                <line x1="280" y1="75" x2="360" y2="40"  stroke="#c84a30" stroke-width="1.5"/>
+                <line x1="280" y1="75" x2="360" y2="75"  stroke="#c84a30" stroke-width="1.5"/>
+                <line x1="280" y1="75" x2="360" y2="110" stroke="#c84a30" stroke-width="1.5"/>
+                <rect x="360" y="20"  width="100" height="40" fill="none" stroke="#c84a30" stroke-width="2" rx="2"/>
+                <rect x="360" y="65"  width="100" height="40" fill="none" stroke="#d4cfc4" stroke-width="1.5" rx="2"/>
+                <rect x="360" y="110" width="100" height="40" fill="none" stroke="#d4cfc4" stroke-width="1.5" rx="2"/>
+                <text x="410" y="46"  text-anchor="middle" fill="#c84a30" style="font: 600 13px 'IBM Plex Sans', system-ui, sans-serif; letter-spacing: 0.5px;">HNSW</text>
+                <text x="410" y="91"  text-anchor="middle" fill="#0a1f44" opacity="0.55" style="font: 500 12px 'IBM Plex Sans', system-ui, sans-serif; letter-spacing: 0.5px;">IVF-FLAT</text>
+                <text x="410" y="136" text-anchor="middle" fill="#0a1f44" opacity="0.55" style="font: 500 12px 'IBM Plex Sans', system-ui, sans-serif; letter-spacing: 0.5px;">Hybrid</text>
+            </g>
+            <rect x="0" y="700" width="1600" height="200" fill="#0a1f44"/>
+            <line x1="0" y1="700" x2="1600" y2="700" stroke="#c84a30" stroke-width="2"/>
+            <text x="100" y="790" class="fi-stat-num">12 MB</text>
+            <text x="100" y="830" class="fi-stat-label">MODEL SIZE</text>
+            <line x1="400" y1="740" x2="400" y2="860" stroke="#c84a30" stroke-width="1" opacity="0.35"/>
+            <text x="420" y="790" class="fi-stat-num">&lt; 5 ms</text>
+            <text x="420" y="830" class="fi-stat-label">INFERENCE</text>
+            <line x1="800" y1="740" x2="800" y2="860" stroke="#c84a30" stroke-width="1" opacity="0.35"/>
+            <text x="820" y="790" class="fi-stat-num">&#x2212;29%</text>
+            <text x="820" y="830" class="fi-stat-label">P95 LATENCY</text>
+            <line x1="1200" y1="740" x2="1200" y2="860" stroke="#c84a30" stroke-width="1" opacity="0.35"/>
+            <text x="1220" y="790" class="fi-stat-num">89%</text>
+            <text x="1220" y="830" class="fi-stat-label">PREDICTION ACCURACY</text>
+        </svg>
+    </div>
 
     <header class="hero">
         <span class="eyebrow">Research Spotlight</span>

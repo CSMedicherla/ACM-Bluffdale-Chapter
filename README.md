@@ -14,6 +14,7 @@ The site is **WordPress**. The active theme uses a custom Page template
 | `blog/adaptindex-preview.html` | Standalone, full-chrome preview (mock header + footer). Open locally in a browser to review styling before publishing. Not for upload. |
 | `blog/page-adaptindex.php` | Alternative: a WP **Page** template. Drop into the active theme, then create a Page that uses this template. Lives at `/adaptindex/`. Does **not** appear on `/blog/` (the listing queries posts, not pages). Use this only if you want a dedicated standalone URL in addition to the Post. |
 | `blog/page-blog.php` | Reference copy of the existing blog listing template currently installed in the theme. No changes needed. |
+| `blog/featured-image.svg` | Editorial-poster SVG (1600&times;900) used as the in-article hero and for the WP Featured image / Open Graph card. Same image is also inlined into the three article files above, so paste-publish doesn't depend on the upload succeeding. |
 
 ## Recommended publish flow
 
@@ -27,7 +28,17 @@ The site is **WordPress**. The active theme uses a custom Page template
    - **Excerpt**:
      > A 12 MB gradient-boosting model that adaptively picks vector indexes for IoT workloads, cutting P95 latency by 29% across a 90-day simulation of 47 edge gateways.
    - **Author**: set to your WP user (this drives the `✍ author` chip on the listing).
-   - **Featured image** (optional): not rendered by current `page-blog.php`, but useful for social-share cards.
+   - **Featured image** (optional but recommended for social sharing):
+     - Upload `blog/featured-image.svg` to **Media Library**.
+     - Click **Set featured image** in the post sidebar and pick it.
+     - Note: the current `page-blog.php` does *not* render thumbnails on the
+       listing card, so the featured image will only appear in:
+         - The article itself (it's already inlined as the hero &mdash; you'll
+           see it whether or not you set the WP Featured image),
+         - Open Graph / Twitter Card previews when the post is shared,
+         - Any future theme update that calls `the_post_thumbnail()`.
+     - If you want the image visible on the `/blog/` listing card too, ask
+       for the page-blog.php thumbnail patch.
 7. **Publish**.
 8. Visit `/blog/` and confirm the new card appears with date, "Blog" chip, author chip, title, and excerpt.
 
