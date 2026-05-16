@@ -358,7 +358,7 @@
 
         <p>The deeper issue is that workloads are not stationary. Query rates shift with diurnal patterns. New sensors come online and change the data distribution. Batch sizes vary as upstream services adapt. A static choice, however expertly made, is a snapshot of a moving target.</p>
 
-        <div class="pullquote">
+        <div class="pullquote" style="font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: clamp(24px, 3vw, 32px); line-height: 1.35; font-style: italic; color: #0a1f44; border-left: 3px solid #c84a30; padding: 8px 0 8px 32px; margin: 48px auto; max-width: 640px;">
             "A static choice, however expertly made, is a snapshot of a moving target."
         </div>
     </section>
@@ -427,15 +427,15 @@
 
         <p>The simulation modeled <strong>47 edge gateways across 12 geographic regions</strong>, processing roughly <strong>5 million queries per day for 90 simulated days</strong>. The setup intentionally varied hardware profiles, network conditions, and workload mix so the results would not be artifacts of a single configuration.</p>
 
-        <div class="stat-grid">
-            <div class="stat-cell"><div class="stat-num">47</div><div class="stat-label">Modeled gateways</div></div>
-            <div class="stat-cell"><div class="stat-num">12</div><div class="stat-label">Regions modeled</div></div>
-            <div class="stat-cell"><div class="stat-num">5M</div><div class="stat-label">Daily queries (sim.)</div></div>
-            <div class="stat-cell"><div class="stat-num">90</div><div class="stat-label">Simulated days</div></div>
-            <div class="stat-cell"><div class="stat-num">29%</div><div class="stat-label">P95 latency reduction</div></div>
-            <div class="stat-cell"><div class="stat-num">99.2%</div><div class="stat-label">Simulated uptime</div></div>
-            <div class="stat-cell"><div class="stat-num">89%</div><div class="stat-label">Prediction accuracy</div></div>
-            <div class="stat-cell"><div class="stat-num">0</div><div class="stat-label">Index-related failures</div></div>
+        <div class="stat-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: #d4cfc4; border: 1px solid #d4cfc4; margin: 40px auto;">
+            <div class="stat-cell" style="background: #fbfaf7; padding: 28px 20px; text-align: left;"><div class="stat-num" style="font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 40px; line-height: 1; color: #0a1f44; margin-bottom: 6px; letter-spacing: -0.02em;">47</div><div class="stat-label" style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #5a5a5a; line-height: 1.4;">Modeled gateways</div></div>
+            <div class="stat-cell" style="background: #fbfaf7; padding: 28px 20px; text-align: left;"><div class="stat-num" style="font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 40px; line-height: 1; color: #0a1f44; margin-bottom: 6px; letter-spacing: -0.02em;">12</div><div class="stat-label" style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #5a5a5a; line-height: 1.4;">Regions modeled</div></div>
+            <div class="stat-cell" style="background: #fbfaf7; padding: 28px 20px; text-align: left;"><div class="stat-num" style="font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 40px; line-height: 1; color: #0a1f44; margin-bottom: 6px; letter-spacing: -0.02em;">5M</div><div class="stat-label" style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #5a5a5a; line-height: 1.4;">Daily queries (sim.)</div></div>
+            <div class="stat-cell" style="background: #fbfaf7; padding: 28px 20px; text-align: left;"><div class="stat-num" style="font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 40px; line-height: 1; color: #0a1f44; margin-bottom: 6px; letter-spacing: -0.02em;">90</div><div class="stat-label" style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #5a5a5a; line-height: 1.4;">Simulated days</div></div>
+            <div class="stat-cell" style="background: #fbfaf7; padding: 28px 20px; text-align: left;"><div class="stat-num" style="font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 40px; line-height: 1; color: #0a1f44; margin-bottom: 6px; letter-spacing: -0.02em;">29%</div><div class="stat-label" style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #5a5a5a; line-height: 1.4;">P95 latency reduction</div></div>
+            <div class="stat-cell" style="background: #fbfaf7; padding: 28px 20px; text-align: left;"><div class="stat-num" style="font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 40px; line-height: 1; color: #0a1f44; margin-bottom: 6px; letter-spacing: -0.02em;">99.2%</div><div class="stat-label" style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #5a5a5a; line-height: 1.4;">Simulated uptime</div></div>
+            <div class="stat-cell" style="background: #fbfaf7; padding: 28px 20px; text-align: left;"><div class="stat-num" style="font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 40px; line-height: 1; color: #0a1f44; margin-bottom: 6px; letter-spacing: -0.02em;">89%</div><div class="stat-label" style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #5a5a5a; line-height: 1.4;">Prediction accuracy</div></div>
+            <div class="stat-cell" style="background: #fbfaf7; padding: 28px 20px; text-align: left;"><div class="stat-num" style="font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 40px; line-height: 1; color: #0a1f44; margin-bottom: 6px; letter-spacing: -0.02em;">0</div><div class="stat-label" style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #5a5a5a; line-height: 1.4;">Index-related failures</div></div>
         </div>
 
         <p>The paper includes the full simulation breakdown, region by region and workload by workload, for readers who want to see where the model worked best and where it had the most to learn.</p>
@@ -464,8 +464,8 @@
     </div>
 
     <div class="container">
-        <p class="closing">
-            By <strong>Chandrashekhar M</strong>, Vice Chair, Bluffdale ACM Chapter. Posted for the Bluffdale &amp; Salt Lake City ACM Chapter. Questions, replications, and pushback all welcome at <a href="mailto:chandrashekhar.medicherla@ieee.org">chandrashekhar.medicherla@ieee.org</a>.
+        <p class="closing" style="border-top: 1px solid #d4cfc4; padding-top: 32px; margin-top: 80px; margin-left: auto; margin-right: auto; font-size: 14px; color: #5a5a5a; font-style: italic; max-width: 720px;">
+            By <strong style="color: #0a1f44;">Chandrashekhar M</strong>, Vice Chair, Bluffdale ACM Chapter. Posted for the Bluffdale &amp; Salt Lake City ACM Chapter. Questions, replications, and pushback all welcome at <a href="mailto:chandrashekhar.medicherla@ieee.org">chandrashekhar.medicherla@ieee.org</a>.
         </p>
     </div>
 

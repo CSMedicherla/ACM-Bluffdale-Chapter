@@ -62,6 +62,15 @@
     font-style: italic !important;
 }
 
+/* Stat grid responsive override.
+   The grid uses inline styles for 4 columns to survive Gutenberg block
+   parsing. Inline styles can not carry media queries, so the responsive
+   2-column layout on small screens lives here. !important is required
+   to override the inline grid-template-columns. */
+@media (max-width: 720px) {
+    .stat-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
 /* Hide the duplicate title that index.php renders above the_content().
    Theme renders the post title in its own heading element outside the
    article, and the article also contains its own heading inside .hero.
