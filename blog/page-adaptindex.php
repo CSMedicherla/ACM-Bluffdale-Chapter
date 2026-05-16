@@ -55,16 +55,16 @@ get_header();
     color: var(--accent); margin-bottom: 16px;
 }
 
-.adaptindex-article .hero {
+.adaptindex-article .ai-hero {
     max-width: 820px; margin: 0 auto 72px;
     padding-bottom: 48px; border-bottom: 1px solid var(--rule);
 }
-.adaptindex-article .hero h1 {
+.adaptindex-article .ai-hero h1 {
     font-family: var(--font-display); font-weight: 600;
     font-size: clamp(36px, 5.5vw, 60px); line-height: 1.1;
     letter-spacing: -0.02em; margin: 0 0 24px; color: var(--ink);
 }
-.adaptindex-article .hero .dek {
+.adaptindex-article .ai-hero .dek {
     font-family: var(--font-display); font-weight: 400; font-style: italic;
     font-size: clamp(20px, 2.4vw, 24px); line-height: 1.45;
     color: var(--muted); margin: 0 0 32px; max-width: 640px;
@@ -240,7 +240,7 @@ get_header();
         </svg>
     </div>
 
-    <header class="hero">
+    <header class="ai-hero">
         <span class="eyebrow">Research Spotlight</span>
         <h1>How a 12 MB Model Picks the Right Vector Index for IoT Workloads</h1>
         <p class="dek">A walkthrough of recently published research on adaptive index selection in vector databases, evaluated across four benchmark datasets and a large-scale simulation study.</p>

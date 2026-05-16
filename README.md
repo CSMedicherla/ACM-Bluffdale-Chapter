@@ -15,6 +15,40 @@ The site is **WordPress**. The active theme uses a custom Page template
 | `blog/page-adaptindex.php` | Alternative: a WP **Page** template. Drop into the active theme, then create a Page that uses this template. Lives at `/adaptindex/`. Does **not** appear on `/blog/` (the listing queries posts, not pages). Use this only if you want a dedicated standalone URL in addition to the Post. |
 | `blog/page-blog.php` | Reference copy of the existing blog listing template currently installed in the theme. No changes needed. |
 | `blog/featured-image.svg` | Editorial-poster SVG (1600&times;900) used as the in-article hero and for the WP Featured image / Open Graph card. Same image is also inlined into the three article files above, so paste-publish doesn't depend on the upload succeeding. |
+| `blog/featured-image.png` / `blog/featured-image@2x.png` | PNG renders of the poster (1600&times;900 and 3200&times;1800). Upload these instead of the SVG because WP core blocks SVG uploads. |
+| `blog/additional-css.css` | Defensive CSS snippet for **Appearance &rarr; Customize &rarr; Additional CSS**. Use this to fix an already-published post without re-editing the body HTML. See the **Theme collision** section below. |
+
+## Theme collision &mdash; the "ugly post" bug
+
+The active chapter theme (extracted from `assets.zip`) defines several global classes that the AdaptIndex post originally collided with:
+
+| Class | Theme behavior | Result on our post |
+|---|---|---|
+| `.hero` | Navy 520-px banner, flex-centered, `color: white`, expects a background image overlay | Our hero block became a 520-px navy box with a white title on warm paper background. **Primary cause of the ugly rendering.** |
+| `.eyebrow` | `display: block`, blue, letter-spacing 3px | Overridden cleanly by `.adaptindex-article .eyebrow` (specificity wins). Not a bug. |
+| `.container` | `max-width: 1200px` | Overridden cleanly by `.adaptindex-article .container`. Not a bug. |
+
+There is also no `single.php` in the theme &mdash; single posts fall back to `index.php`, which renders `<h1><?php the_title(); ?></h1>` above `the_content()`. The original post HTML also had its own `<h1>` inside `.hero`, so the title was rendered twice.
+
+### Fix applied to the repo files
+
+1. Renamed `.hero` &rarr; `.ai-hero` everywhere in the article CSS and HTML, so no theme class can match.
+2. Removed the inner `<h1>` from `blog/adaptindex-post-body.html` so the theme's `<h1><?php the_title(); ?></h1>` is the only title on Post-path renderings.
+3. The Page-template version (`blog/page-adaptindex.php`) and the standalone preview (`blog/adaptindex-preview.html`) **keep** their inner `<h1>` because in those contexts no outer title is rendered.
+
+### How to push the fix live &mdash; pick one
+
+**Path 1: Re-edit the post (recommended).**
+- WP Admin &rarr; Posts &rarr; edit the AdaptIndex post.
+- &vellip; menu (top-right) &rarr; **Code editor**.
+- Select all, delete, paste fresh content from `blog/adaptindex-post-body.html` (between the marker lines).
+- Update.
+
+**Path 2: Patch via Customizer (no post edit).**
+- WP Admin &rarr; Appearance &rarr; **Customize** &rarr; **Additional CSS**.
+- Paste the contents of `blog/additional-css.css`.
+- Publish.
+- The snippet neutralizes the theme's `.hero` properties on `.adaptindex-article .hero` only, and attempts to hide the duplicate outer title with `:has()`. Modern browsers only. Less clean than Path 1 but no editor required.
 
 ## Recommended publish flow
 
