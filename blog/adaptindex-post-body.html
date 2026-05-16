@@ -21,9 +21,9 @@
     6. Find and replace the four placeholder URLs with the real
        Media Library URLs from step 1:
          REPLACE_WITH_FEATURED_IMAGE_URL
-         REPLACE_WITH_FIGURE_1_URL
-         REPLACE_WITH_FIGURE_2_URL
-         REPLACE_WITH_FIGURE_3_URL
+         https://bluffdale.acm.org/wp-content/uploads/2026/05/figure1indextradeoffs.png
+         https://bluffdale.acm.org/wp-content/uploads/2026/05/figure2pipeline.png
+         https://bluffdale.acm.org/wp-content/uploads/2026/05/figure3latency.png
     7. In the right sidebar:
          - Categories: check  Blog   (must match page-blog.php query)
          - Excerpt: paste the suggested excerpt below
@@ -337,7 +337,7 @@
 
     <figure>
         <div class="figure-frame">
-            <img src="REPLACE_WITH_FIGURE_1_URL" alt="Comparison of three vector index types: HNSW, IVF-FLAT, and Hybrid, across memory efficiency, recall, and latency" style="display:block; width:100%; height:auto;">
+            <img src="https://bluffdale.acm.org/wp-content/uploads/2026/05/figure1indextradeoffs.png" alt="Comparison of three vector index types: HNSW, IVF-FLAT, and Hybrid, across memory efficiency, recall, and latency" style="display:block; width:100%; height:auto;">
         </div>
         <figcaption><strong>Figure 1.</strong> Each index type optimizes for a different combination of memory, recall, and latency. The "right" choice depends on which dimension your workload pressures most, and that pressure shifts over time.</figcaption>
     </figure>
@@ -392,7 +392,7 @@
 
     <figure>
         <div class="figure-frame">
-            <img src="REPLACE_WITH_FIGURE_2_URL" alt="AdaptIndex pipeline: 18 features across query patterns, data distribution, and performance feed a gradient-boosting classifier that selects HNSW, IVF-FLAT, or Hybrid" style="display:block; width:100%; height:auto;">
+            <img src="https://bluffdale.acm.org/wp-content/uploads/2026/05/figure2pipeline.png" alt="AdaptIndex pipeline: 18 features across query patterns, data distribution, and performance feed a gradient-boosting classifier that selects HNSW, IVF-FLAT, or Hybrid" style="display:block; width:100%; height:auto;">
         </div>
         <figcaption><strong>Figure 2.</strong> The AdaptIndex pipeline. Eighteen features across three families feed a small gradient-boosting classifier, which outputs the optimal index choice for the current workload. The whole loop fits in 12 MB and runs in under 5 ms, making it deployable on edge gateways.</figcaption>
     </figure>
@@ -414,7 +414,7 @@
 
     <figure>
         <div class="figure-frame">
-            <img src="REPLACE_WITH_FIGURE_3_URL" alt="Latency reduction: AdaptIndex 23 to 31 percent lower than static baseline across four benchmarks; 29 percent P95 reduction in 90-day simulation" style="display:block; width:100%; height:auto;">
+            <img src="https://bluffdale.acm.org/wp-content/uploads/2026/05/figure3latency.png" alt="Latency reduction: AdaptIndex 23 to 31 percent lower than static baseline across four benchmarks; 29 percent P95 reduction in 90-day simulation" style="display:block; width:100%; height:auto;">
         </div>
         <figcaption><strong>Figure 3.</strong> Across four benchmark datasets, AdaptIndex reduced latency by 23 to 31 percent versus the best static configuration. In a 90-day simulation at deployment scale, P95 latency dropped by 29 percent.</figcaption>
     </figure>
